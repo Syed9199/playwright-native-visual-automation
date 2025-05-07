@@ -1,0 +1,21 @@
+{
+  "name": "playwright-native-visual",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "remove-existing": "if exist tests/landingPage.spec.js-snapshots rmdir /s /q tests/landingPage.spec.js-snapshots && if exist tests/loginPage.spec.js-snapshots rmdir /s /q tests/loginPage.spec.js-snapshots",
+    "creating-directories": "cd tests && mkdir landingPage.spec.js-snapshots loginPage.spec.js-snapshots && cd ..",
+    "loginPage": "copy app/images/loginPage-chromium-win32.png  tests/loginPage.spec.js-snapshots",
+    "landingPage": "copy app/images/landingPage-chromium-win32.png  tests/landingPage.spec.js-snapshots",
+    "test": "npm run remove-existing && npm run creating-directories && npm run loginPage && npm run landingPage && npx playwright test "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.4",
+    "fs-extra": "^11.2.0"
+  }
+}
